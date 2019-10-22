@@ -1,4 +1,6 @@
-package todo;
+package mainMethod;
+
+import todo.TodoList;
 
 public class Test {
 
