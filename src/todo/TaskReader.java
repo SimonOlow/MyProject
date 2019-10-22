@@ -22,25 +22,24 @@ package todo;
 	                             PROJECTID = 4;
 	    
 	    /**
-	     * Create a SightingReader.
+	     * Create a TaskReader.
 	     */
 	    public TaskReader()
 	    {
-	    	//Erikas commenting again
-	    	//Wiktorias commenting 
+	    
 	    }
 	    
 	    /**
-	     * Read sightings in CSV format from the given file.
-	     * Return an ArrayList of Sighting objects created from
+	     * 
+	     * Return an ArrayList of Tasks objects created from
 	     * the information in the file.
 	     * 
-	     * @param filename The file to be read - should be in CSV format.
-	     * @return A list of Sightings.
+	     * @param filename The file to be read.
+	     * @return A list of Tasks
 	     */
 	    public ArrayList<Task> getArrayFromFile(String filename) 
 	    {
-	        // Create a task from a CSV input line.
+	        
 	        Function<String, Task> createTaskList = 
 	            record -> {
 	                           String[] parts = record.split(",");

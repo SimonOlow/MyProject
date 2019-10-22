@@ -8,20 +8,25 @@ package todo;
 	import java.util.ArrayList;
 	import java.util.Scanner;
 
-
+	// this class contains the method which run todolist
 	public class TodoList {
 
+		//declaring Scanner
+	    Scanner scan = new Scanner(System.in);
 		
-	Scanner scan = new Scanner(System.in);
-		
+	    //variable finished for first loop which navigate welcome menu
 		private boolean finished = false;
+		
+		//ready variable for second loop which navigate second menu for changing tasks
 		private boolean ready = false;
+		
+		// ArrayList which contains tasks 
 		private ArrayList<Task> tasks;
 		
-
+		//this variable storing tasks which are marked as done
 		int howManyDone = 0;
 		
-		
+		//default constructor which initialize an ArrayList of tasks
 		public TodoList() {
 			
 			this.tasks = new ArrayList<>();
