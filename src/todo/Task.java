@@ -8,6 +8,7 @@ public class Task {
 	private String status;
 	private String projectID;
 	
+	//Erikas commenting
 	
 	public Task() {
 		
