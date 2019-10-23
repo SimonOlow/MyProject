@@ -2,5 +2,4 @@
 1,1,1,Undone,1
 2,2,2,Undone,1
 ,kupic mydlo,12019,Undone,123
-23,kupic mydlo,1234,Undone,12344
-67,kupic mudlo,12,Undone,78
+23,kupic mydlo,1234,Done,12344

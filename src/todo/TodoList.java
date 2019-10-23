@@ -24,7 +24,7 @@ package todo;
 		private ArrayList<Task> tasks;
 		
 		//this variable storing tasks which are marked as done
-		int howManyDone = 0;
+		//int howManyDone = 0;
 		
 		//default constructor which initialize an ArrayList of tasks
 		public TodoList() {
@@ -47,21 +47,15 @@ package todo;
 		 * this method read user input for Integers
 		 */
 		public Integer inputInt() {
-			
 			int integer = 0;
-			
 			   try
 			    {
 			    	integer = Integer.parseInt(scan.next());
-			       
 			    }
 			  
 			   catch( java.lang.NumberFormatException ex) {
 				   System.out.println("Integers only, please.");
 			   }
-		
-			
-			
 			return integer;
 		}
 		
@@ -170,12 +164,14 @@ package todo;
 	     * number of tasks are saved in howManyDone variable
 	     * this method is used in play method
 	     */
-	    public void howManyDoneMethod() {
+	    public int howManyDoneMethod() {
+	    	int howManyDone = 0;
 			for(int i = 0; i < tasks.size(); i++) {
 				if(tasks.get(i).getDone().equals("Done")) {
 					howManyDone ++;
 				}
 			}
+			return howManyDone;
 		}
 	    
 	   
@@ -185,8 +181,8 @@ package todo;
 	     */
 	public void printWelcome() {
 			
-			String line = ">> You have " + howManyUndone() + " tasks todo and " + howManyDone + " tasks are done!";
-			System.out.println(">> Welcome to ToDoLy");
+			String line = ">> You have " + howManyUndone() + " tasks todo and " + howManyDoneMethod() + " tasks are done!";
+			System.out.println(">> Welcome to ToDoList");
 		    System.out.println(line);
 		    System.out.println(">> Pick an option:");
 		    System.out.println(">> (1) Show Task List (by date or project)");
@@ -235,7 +231,7 @@ package todo;
 		 * 
 		 */
 		public void printQuitOrNoForSecondLoop() {
-			System.out.println("Do you want to continue? Y/N:");
+			System.out.println("Do you want to change something more with this task? Y/N:");
 			String YesOrNo = inputString();
 			if(YesOrNo.charAt(0) == 'Y' || YesOrNo.charAt(0) == 'y') {
 				printChangeMenu();
@@ -344,17 +340,16 @@ package todo;
 				System.out.println("Write task's date DDMMYY");
 				String date2 = inputString();
 				date2 = checkIfEmpty(date2);
-				System.out.println("New project or current project? N/C");
-				char NewOrCurrent = scan.nextLine().charAt(0);
-				while(NewOrCurrent != 'n' || NewOrCurrent == 'N' || NewOrCurrent == 'C' || NewOrCurrent == 'c') {
-					System.out.println("Invalid input: You have just to choses N or C");
-					System.out.println("New project or current project? N/C");
-					NewOrCurrent = scan.nextLine().charAt(0);
-				}
+				
+				boolean invalid = false;
 				//this is made to ask user if this project is new or not
 				//if new so user must enter n or N 
 				//if not new so must enter c or C for current
+				while (invalid == false) {
+					System.out.println("New project or current project? N/C");
+					char NewOrCurrent = scan.nextLine().charAt(0);	
 				if (NewOrCurrent == 'N' || NewOrCurrent == 'n') {
+					invalid = true;
 					System.out.println("Write project id: ");
 					
 					String ID = inputString();
@@ -366,7 +361,8 @@ package todo;
 					//short info that task is added
 					System.out.println("You have added task to a project: " + ID);
 				}
-				else {
+				else if (NewOrCurrent == 'C' || NewOrCurrent == 'c') {
+					invalid = true;
 					System.out.println("Write project id: ");
 					String ID = inputString();
 					ID = checkIfEmpty(ID);
@@ -377,7 +373,12 @@ package todo;
 					
 					System.out.println("You have added one task to a project: " + ID);
 				}
-				
+				else {
+					System.out.println("Invalid input. Try again!");
+					
+					
+				}
+				}
 				
 				System.out.println();
 				printQuitOrNo();
@@ -395,6 +396,7 @@ package todo;
 					System.out.println("Such task doesn't exists. Write again: ");
 					taskID = inputString();
 					taskID = checkIfEmpty(taskID);
+					task = findTask(taskID);
 				}
 				//call to method which prints menu to show choices the user have  
 				printChangeMenu();
