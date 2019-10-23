@@ -90,7 +90,7 @@ package todo;
 		} 	
 	    }
 	 
-<<<<<<< HEAD
+
 	    public Task findTaskbyDate(String date) {
 			for (Task t : this.tasks) 
 				if (t.getDate().equals(date)) 
@@ -98,15 +98,13 @@ package todo;
 			return null;
 			}
 	    
-||||||| merged common ancestors
-	    
-=======
+
 	    /*
 	     * this method is looking for a task by its ID number
 	     * and returning this tasks if it exists 
 	     * otherwise it return null
 	     */
->>>>>>> newBranch
+
 	    public Task findTask(String ID) {
 			for (Task t : this.tasks) 
 				if (t.getNumber().equals(ID)) 
@@ -199,17 +197,10 @@ package todo;
 	     */
 	public void printWelcome() {
 			
-<<<<<<< HEAD
-			String line = ">> You have " + howManyUndone() + " tasks todo and " + howManyDone + " tasks are done!";
-			System.out.println(">> Welcome to ToDoList");
-||||||| merged common ancestors
-			String line = ">> You have " + howManyUndone() + " tasks todo and " + howManyDone + " tasks are done!";
-			System.out.println(">> Welcome to ToDoLy");
-=======
+
 			String line = ">> You have " + howManyUndone() + " tasks todo and " + howManyDoneMethod() + " tasks are done!";
+			System.out.println(line);
 			System.out.println(">> Welcome to ToDoList");
->>>>>>> newBranch
-		    System.out.println(line);
 		    System.out.println(">> Pick an option:");
 		    System.out.println(">> (1) Show Task List (by date or project)");
 		    System.out.println(">> (2) Add New Task");
@@ -332,13 +323,7 @@ package todo;
 					date = checkIfEmpty(date);
 					//call to method which prints tasks by date 
 					printTaskByDate(date);
-<<<<<<< HEAD
-					
-				
-||||||| merged common ancestors
-						 
-=======
->>>>>>> newBranch
+
 						}
 				
 				else  if(choose2 == 2){

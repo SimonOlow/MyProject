@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="todo.Task" project="ProjectToDo" file="/ProjectToDo/src/todo/Task.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="389" width="229" x="353" y="517"/>    
+    <position height="389" width="229" x="277" y="643"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="mainMethod.Test" project="ProjectToDo" 
     file="/ProjectToDo/src/mainMethod/Test.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="101" width="124" x="189" y="16"/>    
+    <position height="101" width="124" x="113" y="124"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="todo.TaskReader" project="ProjectToDo" 
     file="/ProjectToDo/src/todo/TaskReader.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="209" width="248" x="649" y="16"/>    
+    <position height="209" width="248" x="573" y="124"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="todo.TodoList" project="ProjectToDo" file="/ProjectToDo/src/todo/TodoList.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="461" width="256" x="353" y="16"/>    
+    <position height="479" width="256" x="277" y="124"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
