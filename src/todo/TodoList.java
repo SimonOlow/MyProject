@@ -47,7 +47,21 @@ package todo;
 		 * this method read user input for Integers
 		 */
 		public Integer inputInt() {
-			int integer = scan.nextInt();
+			
+			int integer = 0;
+			
+			   try
+			    {
+			    	integer = Integer.parseInt(scan.next());
+			       
+			    }
+			  
+			   catch( java.lang.NumberFormatException ex) {
+				   System.out.println("Integers only, please.");
+			   }
+		
+			
+			
 			return integer;
 		}
 		
@@ -253,6 +267,17 @@ package todo;
 			return taskDetails;
 		}
 		
+		/*
+		 * this method is checking if user input is empty
+		 */
+		public String checkIfEmpty(String text) {
+			while(text.equals("")) {
+				System.out.println("You have to write something!");
+				text = inputString();
+			}
+			return text;
+		}
+		
 		
 		//method which initialize the to do list
 	
@@ -267,7 +292,9 @@ package todo;
 			
 			//while loop which provide navigation through main menu 
 			while (finished == false) {
+			
 			int choose = inputInt();
+		
 			//switch choice for menu 
 			switch(choose) {
 			case 1:
@@ -280,6 +307,7 @@ package todo;
 				if(choose2 == 1) {
 					System.out.println("Write a date DDMMYY:");	
 					String date = inputString();
+					date = checkIfEmpty(date);
 					//call to method which prints tasks by date 
 					printTaskByDate(date);
 						}
@@ -287,6 +315,7 @@ package todo;
 				else  if(choose2 == 2){
 				System.out.println("Write project's ID number:");
 				String id = inputString();
+				id = checkIfEmpty(id);
 				//call to method which prints tasks by project id
 				printTaskByProject(id);
 				}
@@ -300,20 +329,28 @@ package todo;
 				System.out.println("Write task's ID number");
 				//user must first write task id number to find the task
 				String IDNumber = inputString();
+				//checking if input is not empty
+				IDNumber = checkIfEmpty(IDNumber);
+				//checking if task ID already exists
 				while(findTask(IDNumber) != null) {
 					System.out.println("Task with ID number " + IDNumber + " already exists!");
 					System.out.println("Write other number: ");
 					IDNumber = inputString();
 				}
-				
+
 				System.out.println("Write task's title:");
 				String title = inputString();
-				
+				title = checkIfEmpty(title);
 				System.out.println("Write task's date DDMMYY");
 				String date2 = inputString();
-				
+				date2 = checkIfEmpty(date2);
 				System.out.println("New project or current project? N/C");
 				char NewOrCurrent = scan.nextLine().charAt(0);
+				while(NewOrCurrent != 'n' || NewOrCurrent == 'N' || NewOrCurrent == 'C' || NewOrCurrent == 'c') {
+					System.out.println("Invalid input: You have just to choses N or C");
+					System.out.println("New project or current project? N/C");
+					NewOrCurrent = scan.nextLine().charAt(0);
+				}
 				//this is made to ask user if this project is new or not
 				//if new so user must enter n or N 
 				//if not new so must enter c or C for current
@@ -329,34 +366,35 @@ package todo;
 					//short info that task is added
 					System.out.println("You have added task to a project: " + ID);
 				}
-				else if(NewOrCurrent == 'C' || NewOrCurrent == 'c') {
+				else {
 					System.out.println("Write project id: ");
 					String ID = inputString();
+					ID = checkIfEmpty(ID);
 					//task is marked as undone by default
 					String status = "Undone";
 					Task task = new Task(IDNumber, title, date2, status, ID );
 					tasks.add(task);
 					
 					System.out.println("You have added one task to a project: " + ID);
-					}
-				// if user write something else this message show up
-				else {
-					System.out.println("Invalid input: You have just to choses N or C");
 				}
+				
+				
 				System.out.println();
 				printQuitOrNo();
 				
 				break;
+				
 			case 3:
 				System.out.println("Write task's ID: ");
 				//first enter task id to find task user want to change 
 				String taskID = inputString();
-				
+				taskID = checkIfEmpty(taskID);
 				Task task = findTask(taskID);
 				//if task with such id doesn't exists so this message show up
 				if (task == null) {
 					System.out.println("Such task doesn't exists. Write again: ");
 					taskID = inputString();
+					taskID = checkIfEmpty(taskID);
 				}
 				//call to method which prints menu to show choices the user have  
 				printChangeMenu();
@@ -368,6 +406,7 @@ package todo;
 					case 1:
 						System.out.println("Write new title: ");
 						String newTitle = inputString();
+						newTitle = checkIfEmpty(newTitle);
 						//changing title of the task
 						task.setTitle(newTitle);
 						System.out.println("The title has changed!");
@@ -394,7 +433,7 @@ package todo;
 						//changes the date of the task
 						System.out.println("Write new date DDMMYY: ");
 						String newDate = inputString();
-						
+						newDate = checkIfEmpty(newDate);
 						task.setDate(newDate);
 						System.out.println("The date has changed!");
 						
@@ -412,6 +451,7 @@ package todo;
 						//changes task id 
 						System.out.println("Write new task id: ");
 						String newID = inputString();
+						newID = checkIfEmpty(newID);
 						task.setNumber(newID);
 						
 						System.out.println();
