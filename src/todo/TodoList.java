@@ -71,6 +71,12 @@ package todo;
 		} 	
 	    }
 	 
+	    public Task findTaskbyDate(String date) {
+			for (Task t : this.tasks) 
+				if (t.getDate().equals(date)) 
+					return t;
+			return null;
+			}
 	    
 	    public Task findTask(String ID) {
 			for (Task t : this.tasks) 
@@ -101,14 +107,22 @@ package todo;
 	     */
 	    public void printTaskByDate(String date)
 	 {
+	    	if (findTaskbyDate(date) == null) {
+	    		System.out.println("Tasks not found");
+	    	}
+	    	else {
 	        tasks.stream()
 	                 .filter(task -> task.getDate().equals(date))
 	                 .map(task -> task.getDetails())
-	                 .forEach(details -> System.out.println(details));        
+	                 .forEach(details -> System.out.println(details));
+	    	}
 	    }
 	    
 	    public void printTaskByProject(String projectID)
 	    {
+	    	if (findTask(projectID) == null) {
+	    		System.out.println("Tasks not found");
+	    	}
 	           tasks.stream()
 	                    .filter(task -> task.getProjectID().equals(projectID))
 	                    .map(task -> task.getDetails())
@@ -127,7 +141,7 @@ package todo;
 	public void printWelcome() {
 			
 			String line = ">> You have " + howManyUndone() + " tasks todo and " + howManyDone + " tasks are done!";
-			System.out.println(">> Welcome to ToDoLy");
+			System.out.println(">> Welcome to ToDoList");
 		    System.out.println(line);
 		    System.out.println(">> Pick an option:");
 		    System.out.println(">> (1) Show Task List (by date or project)");
@@ -223,7 +237,8 @@ package todo;
 					String date = inputString();
 					
 					printTaskByDate(date);
-						 
+					
+				
 						}
 				
 				else  if(choose2 == 2){
