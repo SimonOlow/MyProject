@@ -23,8 +23,6 @@ package todo;
 		// ArrayList which contains tasks 
 		private ArrayList<Task> tasks;
 		
-		//this variable storing tasks which are marked as done
-		//int howManyDone = 0;
 		
 		//default constructor which initialize an ArrayList of tasks
 		public TodoList() {
@@ -445,7 +443,7 @@ package todo;
 					case 4:
 						//remove task
 						removeTask(taskID);
-						
+						System.out.println("Task removed");
 						System.out.println();
 						printQuitOrNoForSecondLoop();
 						break;
@@ -454,7 +452,16 @@ package todo;
 						System.out.println("Write new task id: ");
 						String newID = inputString();
 						newID = checkIfEmpty(newID);
+						while(findTask(newID) != null) {
+							System.out.println("Task with ID number " + newID + " already exists!");
+							System.out.println("Write other number: ");
+							newID = inputString();
+							newID = checkIfEmpty(newID);
+						}
+						if(findTask(newID) == null) {
 						task.setNumber(newID);
+						System.out.println("The task id number has changed!");
+						}
 						
 						System.out.println();
 						printQuitOrNoForSecondLoop();
