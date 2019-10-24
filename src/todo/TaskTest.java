@@ -47,23 +47,6 @@ class TaskTest {
 	void tearDown() throws Exception {
 	}
 
-	/**
-	 * Test method for {@link todo.Task#Task()}.
-	 */
-	@Test
-	final void testTask() {
-		fail("Not yet implemented"); // TODO
-		//constructor
-	}
-
-	/**
-	 * Test method for {@link todo.Task#Task(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)}.
-	 */
-	@Test
-	final void testTaskStringStringStringStringString() {
-		fail("Not yet implemented"); // TODO 
-		//constructor
-	}
 
 	/**
 	 * Test method for {@link todo.Task#getNumber()}.
