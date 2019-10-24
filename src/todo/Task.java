@@ -9,6 +9,7 @@ public class Task {
 	private String projectID;
 	
 	
+	
 	//default constructor
 	public Task() {
 		
@@ -22,6 +23,7 @@ public class Task {
 		this.status = status;
 		this.projectID = id;
 	}
+	
 	
 	
     //get and set methods for each parameter
